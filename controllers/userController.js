@@ -7,8 +7,7 @@ import jwt from 'jsonwebtoken'
 export const userRegister = (req, res) => {
     try {
         let { userName, password, email } = req.body
-        console.log(userName,password,email)
-        userModel.findOne({ userName })
+        userModel.findOne({ email })
             .then((user) => {
                 if (user) {
                     res.status(200).json({ registration: false })
